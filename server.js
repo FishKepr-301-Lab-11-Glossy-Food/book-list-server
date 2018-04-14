@@ -8,12 +8,11 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 // const conString = 'postgres://localhost:5432/books_app';
-const DATABASE_URL = 'postgres://urksfufglaniux:45984851e5ec00418d245fe521c165749e81cb3825c276ddf0197853c5aa11b2@ec2-54-243-54-6.compute-1.amazonaws.com:5432/dd0s6294njttog'
+const DATABASE_URL = 'postgres://urksfufglaniux:45984851e5ec00418d245fe521c165749e81cb3825c276ddf0197853c5aa11b2@ec2-54-243-54-6.compute-1.amazonaws.com:5432/dd0s6294njttog';
 const client = new pg.Client(DATABASE_URL);
 client.connect();
 app.use(cors());
 
-// app.use(cors());
 app.get('/books', (req, res) => {
   console.log(req, res);
   client.query(`
