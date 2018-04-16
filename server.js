@@ -32,4 +32,24 @@ app.get('/books', (req, res) => {
     })
 });
 
+app.get('/api/v1/books', (req, res) => {
+  console.log(req, res);
+  client.query(`
+  SELECT 
+    book_id,
+    title,
+    author,
+    image_url
+    FROM books;
+  `)
+    .then(function(result) {
+      console.log(result);
+      res.send(result.rows);
+    })
+    .catch(function(err) {
+      console.error(err)
+    })
+});
+
+
 app.listen(PORT, () => console.log(`Server started on port ${PORT}!`));
