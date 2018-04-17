@@ -19,7 +19,6 @@ app.use(cors());
 app.get('*', (req, res) => res.redirect(CLIENT_URL));
 
 app.get('/books', (req, res) => {
-  console.log(req, res);
   client.query(`
   SELECT * FROM books;
   `)
@@ -34,13 +33,12 @@ app.get('/books', (req, res) => {
 });
 
 app.get('/api/v1/books', (req, res) => {
-  console.log(req, res);
   client.query(`
   SELECT 
     book_id,
     title,
     author,
-    image_url
+    img_url
     FROM books;
   `)
     .then(function(result) {
