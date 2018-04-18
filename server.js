@@ -1,6 +1,7 @@
 'use strict'
 
 const pg = require('pg');
+//middleware = cross origin resource sharing
 const cors = require('cors');
 const express = require('express');
 const PORT = process.env.PORT;
